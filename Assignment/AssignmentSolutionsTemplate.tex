@@ -1,1 +1,191 @@
-/Users/apara/Library/TeXShop/Templates/AssignmentSolutionsTemplate.tex
+\documentclass[11pt]{article}
+\setlength{\oddsidemargin}{0in}
+\setlength{\evensidemargin}{0in}
+\setlength{\textwidth}{6.5in}
+\setlength{\parindent}{0in}
+\setlength{\parskip}{\baselineskip}
+
+\usepackage{amsmath,amsfonts,amssymb}
+\usepackage{subfiles}
+\usepackage{enumitem, tabularx, booktabs, ragged2e}
+\usepackage[margin=1in]{geometry}
+\usepackage{listings, lstautogobble}
+\usepackage{alltt}
+\usepackage{tikz}
+\usepackage{tabularx}
+\usepackage{graphicx}
+\usepackage{xcolor}
+\usepackage{blkarray}
+\usepackage[bottom]{footmisc}
+\usepackage{rotating}
+\usepackage{wasysym}
+\usepackage{rotating}
+\usepackage[hidelinks]{hyperref}
+\graphicspath{{images/}{./img/}}
+\usepackage{verbatimbox}
+\usepackage{tablefootnote}
+\newcolumntype{L}{>{\centering\arraybackslash}m{1cm}}
+
+% colors in math environment
+\usepackage{xcolor}
+\definecolor{orange}{rgb}{1,0.5,0}
+\definecolor{blue}{rgb}{0.22, 0.58, 0.82}
+\definecolor{green}{rgb}{0.2, 0.65, 0.32}
+\definecolor{red}{rgb}{0.91, 0.26, 0.2}
+\definecolor{purple}{rgb}{0.46, 0.21, 0.68}
+\makeatletter
+\def\mathcolor#1#{\@mathcolor{#1}}
+\def\@mathcolor#1#2#3{%
+	\protect\leavevmode
+	\begingroup
+	\color#1{#2}#3%
+	\endgroup
+}
+\makeatother
+
+\allowdisplaybreaks
+
+% Label subfigures as 1(a) instead of 1a
+\usepackage[labelformat=simple]{subcaption}
+\renewcommand\thesubfigure{(\alph{subfigure})}
+\usetikzlibrary{automata,positioning}
+
+% Var, MSE, Bias
+\newcommand{\Var}{\text{Var}}
+\newcommand{\Cov}{\text{Cov}}
+\newcommand{\MSE}{\text{MSE}}
+\newcommand{\bias}{\text{Bias}}
+
+% Norm and absolute value
+\newcommand{\norm}[1]{\left\lVert#1\right\rVert}
+\newcommand{\abs}[1]{\left\lvert#1\right\rvert}
+
+% argmax and argmin
+\DeclareMathOperator*{\argmin}{argmin} % no space, limits underneath in displays
+\DeclareMathOperator*{\argmax}{argmax} % no space, limits underneath in displays
+
+% Decorators
+\newcommand{\dinkus}{\begin{center}***\end{center}}
+
+% Make code look nicer
+\definecolor{codegreen}{rgb}{0,0.6,0}
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\definecolor{codepurple}{rgb}{0.58,0,0.82}
+\definecolor{backcolour}{rgb}{0.95,0.95,0.92}
+\lstdefinestyle{mystyle}{
+    backgroundcolor=\color{backcolour},   
+    commentstyle=\color{codegreen},
+    keywordstyle=\color{magenta},
+    numberstyle=\tiny\color{codegray},
+    stringstyle=\color{codepurple},
+    basicstyle=\ttfamily\footnotesize,
+    breakatwhitespace=false,         
+    breaklines=true,                 
+    captionpos=b,                    
+    keepspaces=true,                 
+    numbers=left,                    
+    numbersep=5pt,                  
+    showspaces=false,                
+    showstringspaces=false,
+    showtabs=false,                  
+    tabsize=2
+}
+\lstset{style=mystyle}
+
+\begin{document}
+
+STAT xxx Autumn xxxx \hfill Assignment xx\\
+Apara Venkat
+
+\hrulefill
+
+Worked on this assignment with Hermione Granger and Ron Weasley. Final writeup is my own. \\
+
+\dinkus
+
+
+\begin{enumerate}
+
+\item Question 1
+
+
+\end{enumerate}
+
+
+
+\begin{comment}
+
+	% Using subfiles
+	\subfile{questions/q1}
+	
+	
+	% Import a code file
+	\lstinputlisting[language=R]{code/q1.R}
+	
+	
+	% Appendix
+	\appendix
+	\section{Code}
+	
+	
+	% Single figure
+	\begin{figure}[!tbh]
+		\centering
+		\includegraphics[height=3in]{image.png}
+		\caption{Image}
+		\label{fig:img}
+	\end{figure}
+
+	
+	% Side-by-side figure each with captions and labels
+	\begin{figure*}[!tbh]
+    	\centering
+		
+		% Figure (a)
+    	\begin{subfigure}[t]{0.5\textwidth}
+        	\centering
+	        \includegraphics[height=2in]{image_a.png}
+    	    \caption{Image (a)}
+        	\label{fig:img-a}
+	    \end{subfigure}%
+    	~ 
+	
+		% Figure (b)
+	    \begin{subfigure}[t]{0.5\textwidth}
+    	    \centering
+        	\includegraphics[height=2in]{image_b.png.png}
+	        \caption{Image (b)}
+    	    \label{fig:img-b}
+	    \end{subfigure}
+	    
+	    % Caption for combined figure
+	    \caption{Image}
+    	\label{fig:img}
+	\end{figure*}
+	
+	
+	% Simple table
+	% Use https://tablesgenerator.com/
+	% Python: https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.to_latex.html
+	% R: http://xtable.r-forge.r-project.org/
+	\begin{table}[!tbh]
+		\centering
+		\begin{tabular}{cccc}
+			\hline
+			\textbf{Column 1} & \textbf{Column 2} & \textbf{Column 3} & \textbf{Column 4} \\
+			\hline
+			\hline
+			1 & & & \\
+			2 & & & \\
+			\hline
+		\end{tabular}
+		\caption{Table.}
+		\label{tab:table}
+	\end{table}
+	
+\end{comment}
+
+
+
+\end{document}
+
